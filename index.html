@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Assistant</title>
+
+    <style>
+        body{
+            padding: 0%;
+            margin: 0%;
+        }
+        .section{
+            width: 400px;
+            height: 400px;
+            background-color: rgb(241, 144, 120);
+            border-radius: 35px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border: 2px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 35%;
+            margin-top: 5%;
+        
+        }
+        
+
+        input{
+            width: 60%;
+            height: 10%;
+            padding: 10px;
+            margin-top: 30px;
+            border: transparent;
+        }
+
+        input:hover{
+
+        }
+
+        h1{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+        }
+        button{
+            background-color: black;
+            color: white;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 15px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: aqua;
+            color: black;
+        }
+
+        details{
+            margin-top: 20px;
+        }
+        p{
+            color: white;
+            font-weight: lighter;
+
+        }
+
+        @media screen and (max-width:600px){
+            .section{
+                margin-top:20%;
+                margin-left: 10%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <h1>Hello,Brother</h1>
+        <input type="text" placeholder="Try to speak">
+
+        <button id="btn">Speak</button>
+
+        <details>
+            <summary>Read Captions</summary>
+            <p>This voice assistant was developed for <br>entertainment purposes using basic <br> HTML and CSS. </p>
+        </details>
+    </div>
+
+
+    <script>
+        const input = document.querySelector("input")
+        const button = document.getElementById("btn")
+
+        const texttToSpeak = () => {
+            let text = input.value;
+            const voice = new SpeechSynthesisUtterance(text)
+            window.speechSynthesis.speak(voice);
+
+        }
+
+        button.addEventListener("click", texttToSpeak);
+
+
+    </script>
+</body>
+
+</html>
